@@ -14,9 +14,7 @@ class Hand {
     }
 
     playCard(card) {
-        if (!cardsHand.includes(card)) {
-        return null;
-    }
+        if (!cardsHand.includes(card)) return null;
         this.cardsHand.pop(card)
     }
 }
@@ -37,6 +35,7 @@ class Deck {
                 deck.push(card);
             }
         }
+
         return deck;
     }
 
@@ -70,9 +69,3 @@ class Deck {
 
 const arrayCardRanks = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
 const arrayCardSuits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
-
-class cardDetails extends Card {
-    constructor() {
-        
-    }
-}
