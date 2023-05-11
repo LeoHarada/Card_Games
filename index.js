@@ -3,6 +3,22 @@ class Card {
       this.rank = rank;
       this.suit = suit;
     }
+
+    render(imgSrc) {
+        const cardDisplay = document.createElement('section');
+        cardDisplay.classList.add('card');
+
+        const cardRank = document.createElement('h2');
+        cardRank.classList.add('rank');
+        cardRank.textContent = this.rank;
+        cardDisplay.append(cardRank);
+
+        const suitImage = document.createElement('img');
+        suitImage.src = imgSrc;
+        cardDisplay.append(suitImage);
+
+        return cardDisplay;
+    }
 }
 
 class Hand {
