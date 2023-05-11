@@ -21,18 +21,18 @@ class Hand {
     }
 }
 class Deck {
-    constructor(arrayCardRanks, arrayCardSuits, cardsDeck) {
+    constructor(arrayCardRanks, arrayCardSuits) {
         this.arrayCardRanks = arrayCardRanks;
         this.arrayCardSuits = arrayCardSuits;
-        this.cardsDeck = cardsDeck;
+        this.cardsDeck = [];
         }
 
     generateCards() {
         let deck = [];
-        for (i=0; i<this.arrayCardRanks.length; i++) {
+        for (let i=0; i<this.arrayCardRanks.length; i++) {
             let currentRank = this.arrayCardRanks[i];
-            for (j=0; j<this.arrayCardSuits; i++) {
-                let currentSuit = this.arrayCardSuits[i];
+            for (let j=0; j<this.arrayCardSuits.length; j++) {
+                let currentSuit = this.arrayCardSuits[j];
                 deck.push(currentRank + currentSuit);
             }
         }
@@ -64,4 +64,5 @@ class Deck {
     }
 }
 
-
+const arrayCardRanks = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K']
+const arrayCardSuits = ['Hearts', 'Diamonds', 'Clubs', 'Spades']
