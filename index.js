@@ -24,7 +24,7 @@ class Deck {
     constructor(arrayCardRanks, arrayCardSuits) {
         this.arrayCardRanks = arrayCardRanks;
         this.arrayCardSuits = arrayCardSuits;
-        this.cardsDeck = [];
+        this.cardsDeck = this.generateCards();
         }
 
     generateCards() {
@@ -33,7 +33,8 @@ class Deck {
             let currentRank = this.arrayCardRanks[i];
             for (let j=0; j<this.arrayCardSuits.length; j++) {
                 let currentSuit = this.arrayCardSuits[j];
-                deck.push(currentRank + currentSuit);
+                let card = new Card(currentRank,currentSuit);
+                deck.push(card);
             }
         }
         return deck;
@@ -48,19 +49,22 @@ class Deck {
         }
 
     draw() {
-        this.cardsDeck.pop(); 
+        return this.cardsDeck.pop(); 
     }
 
     deal(numHands, cardsPerHand) {
         let hands = [];
-        for (i = 0; i < numHands.length; i++) {
-            let hand = [];
-            for (j = 0; j < cardsPerHand.length; j++) {
-                hand.push(this.draw());
+        for (let i = 0; i < numHands; i++) {
+            console.log('hands loop')
+            let hand = new Hand([]);
+            for (let j = 0; j < cardsPerHand; j++) {
+                console.log('hand loop')
+                hand.addCard(this.draw());
             }
             hands.push(hand);
-            hand = [];
         }
+
+        return hands;
     }
 }
 
